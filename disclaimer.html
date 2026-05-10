@@ -34,7 +34,45 @@
             font-family: 'Noto Serif SC', serif;
         }
     </style>
+
+    <!-- Disable Right Click and Developer Tools -->
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            // F12
+            if (event.code === 'F12') {
+                event.preventDefault();
+            }
+            // Ctrl+Shift+I / Cmd+Option+I
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.code === 'KeyI') {
+                event.preventDefault();
+            }
+            // Ctrl+Shift+J / Cmd+Option+J
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.code === 'KeyJ') {
+                event.preventDefault();
+            }
+            // Ctrl+U / Cmd+Option+U
+            if ((event.ctrlKey || event.metaKey) && event.code === 'KeyU') {
+                event.preventDefault();
+            }
+            // Ctrl+Shift+C / Cmd+Option+C
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.code === 'KeyC') {
+                event.preventDefault();
+            }
+        });
+        
+        // Disable drag on images
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.nodeName.toUpperCase() === "IMG") {
+                e.preventDefault();
+            }
+        });
+    </script>
 </head>
+
 <body class="pt-24">
     <!-- Header -->
     <header class="flex justify-between items-center py-6 px-4 md:px-12 border-b border-[#2a2118] bg-[#050505] fixed top-0 w-full z-50">
